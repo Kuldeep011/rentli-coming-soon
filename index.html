@@ -1030,6 +1030,9 @@
     const submitBtn = document.getElementById('submit-btn');
     const messageEl = document.getElementById('form-message');
 
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxu0bcupRC3tNKtbrFnPSWY0ssVsXjuoV_pBMEbKt5tPflExNqFFYnAs21vEUeumVmzxg/exec';
+    const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/kuldeepvishwakarma2001@gmail.com';
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
@@ -1049,11 +1052,21 @@
 
       try {
         const formData = new FormData(form);
-        const response = await fetch(form.action, {
+
+        // Send to Google Sheet (Excel) and FormSubmit Email in parallel
+        const sheetReq = fetch(GOOGLE_SHEET_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ email: emailVal })
+        });
+
+        const emailReq = fetch(FORMSUBMIT_URL, {
           method: 'POST',
           body: formData,
           headers: { 'Accept': 'application/json' }
         });
+
+        await Promise.allSettled([sheetReq, emailReq]);
 
         // Always cache locally as backup
         try {
@@ -1066,7 +1079,7 @@
         messageEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> <strong>You\'re on the VIP list!</strong> We\'ll email you exclusive access + ₹500 credits at launch.';
         emailInput.value = '';
       } catch (err) {
-        // Fallback gracefully if offline or CORS
+        // Fallback gracefully
         try {
           const list = JSON.parse(localStorage.getItem('rentli_waitlist') || '[]');
           list.push({ email: emailVal, timestamp: new Date().toISOString() });
