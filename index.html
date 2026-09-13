@@ -1056,6 +1056,7 @@
         // Send to Google Sheet (Excel) and FormSubmit Email in parallel
         const sheetReq = fetch(GOOGLE_SHEET_URL, {
           method: 'POST',
+          mode: 'no-cors',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({ email: emailVal })
         });
