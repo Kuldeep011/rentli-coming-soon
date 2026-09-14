@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ED1C24">
+  <meta name="theme-color" content="#FFA906">
   <meta name="description" content="Rentli is launching soon — India's premier peer-to-peer rental marketplace. Rent cameras, laptops, partywear, electronics, appliances & tools with 100% secure escrow protection.">
   <meta name="keywords" content="rentli, rent cameras, rent laptop, rent electronics bangalore, rent clothes, peer to peer rental india, rent items locally, rentli marketplace">
   
   <!-- OpenGraph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Rentli — Rent Anything, Anywhere in India | Coming Soon">
+  <meta property="og:title" content="Rentli — Rent Anything, Anywhere in India | Launching Soon">
   <meta property="og:description" content="Join the waitlist for India's #1 peer-to-peer rental community. Borrow what you need, earn from what you own.">
   <meta property="og:image" content="logo.png">
   
   <title>Rentli — Rent Anything, Anywhere in India | Launching Soon</title>
   
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="alternate icon" type="image/png" href="favicon_transparent.png">
+  <link rel="apple-touch-icon" href="favicon_transparent.png">
   
   <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,16 +29,19 @@
 
   <style>
     :root {
-      --primary: #ED1C24;
-      --primary-dark: #C81018;
-      --primary-light: rgba(237, 28, 36, 0.12);
-      --primary-glow: rgba(237, 28, 36, 0.35);
-      --bg-dark: #090D16;
-      --bg-card: rgba(18, 24, 38, 0.7);
-      --bg-card-border: rgba(255, 255, 255, 0.08);
+      --primary: #FFA906;
+      --primary-dark: #E68A00;
+      --primary-light: rgba(255, 169, 6, 0.12);
+      --primary-glow: rgba(255, 169, 6, 0.35);
+      --brand-navy: #102E52;
+      --brand-blue: #1D4ED8;
+      --bg-dark: #0B1D35;
+      --bg-darker: #071426;
+      --bg-card: rgba(16, 46, 82, 0.65);
+      --bg-card-border: rgba(255, 255, 255, 0.09);
       --text-main: #FFFFFF;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
+      --text-muted: #9FB3C8;
+      --text-dim: #627D98;
       --success: #10B981;
       --radius-sm: 8px;
       --radius-md: 14px;
@@ -53,7 +57,7 @@
 
     html, body {
       min-height: 100vh;
-      background-color: var(--bg-dark);
+      background: radial-gradient(circle at 50% 0%, #102E52 0%, #0B1D35 45%, #071426 100%);
       color: var(--text-main);
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       overflow-x: hidden;
@@ -73,23 +77,23 @@
       top: -150px;
       left: 50%;
       transform: translateX(-50%);
-      width: 700px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(237, 28, 36, 0.22) 0%, rgba(200, 16, 24, 0.05) 70%, transparent 100%);
+      width: 750px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(255, 169, 6, 0.16) 0%, rgba(16, 46, 82, 0.28) 60%, transparent 100%);
     }
     .glow-2 {
       bottom: -100px;
       right: -100px;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(237, 28, 36, 0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 169, 6, 0.1) 0%, transparent 70%);
     }
     .glow-3 {
       top: 40%;
       left: -200px;
       width: 450px;
       height: 450px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.15) 0%, transparent 70%);
     }
 
     /* Subtle Grid Background Pattern */
@@ -120,49 +124,76 @@
     /* Header / Nav */
     header {
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 0 28px;
+      width: 100%;
+    }
+
+    .nav-top {
+      display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 0 32px;
+      width: 100%;
+      gap: 12px;
+    }
+
+    .nav-bottom {
+      display: flex;
+      align-items: center;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
-      color: var(--text-main);
+      flex-shrink: 0;
     }
 
-    .logo-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 4px 16px var(--primary-glow);
-      transition: transform 0.3s ease;
+    .brand-logo-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 14px rgba(255, 169, 6, 0.25));
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .brand:hover .logo-box {
-      transform: scale(1.05) rotate(-3deg);
+    .brand:hover .brand-logo-img {
+      transform: scale(1.05);
     }
 
-    .logo-box svg {
-      width: 22px;
-      height: 22px;
-      fill: #FFFFFF;
-    }
-
-    .brand-name {
-      font-family: 'Outfit', sans-serif;
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+    .insta-follow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      background: rgba(16, 46, 82, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       color: #FFFFFF;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
-
-    .brand-name span {
-      color: var(--primary);
+    .insta-follow-btn i {
+      font-size: 16px;
+      color: #FFFFFF;
+      transition: transform 0.25s ease;
+    }
+    .insta-follow-btn:hover {
+      background: rgba(255, 169, 6, 0.15);
+      border-color: rgba(255, 169, 6, 0.45);
+      color: #FFA906;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 169, 6, 0.25);
+    }
+    .insta-follow-btn:hover i {
+      transform: scale(1.15);
+      color: #FFA906;
     }
 
     .status-badge {
@@ -222,13 +253,13 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: var(--radius-full);
-      background: var(--primary-light);
-      border: 1px solid rgba(237, 28, 36, 0.25);
-      color: #FF5A60;
+      background: rgba(255, 169, 6, 0.12);
+      border: 1px solid rgba(255, 169, 6, 0.28);
+      color: #FFB300;
       font-size: 13px;
       font-weight: 700;
       margin-bottom: 22px;
-      box-shadow: 0 2px 10px rgba(237, 28, 36, 0.15);
+      box-shadow: 0 2px 12px rgba(255, 169, 6, 0.12);
     }
 
     h1 {
@@ -248,7 +279,7 @@
     }
 
     .accent-gradient {
-      background: linear-gradient(135deg, #FF4D52 0%, #ED1C24 60%, #C81018 100%);
+      background: linear-gradient(135deg, #FFC107 0%, #FFA906 60%, #FF8F00 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -292,8 +323,8 @@
 
     .email-input {
       width: 100%;
-      background: rgba(11, 15, 25, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(7, 20, 38, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
       padding: 16px 16px 16px 44px;
       color: #FFFFFF;
@@ -307,8 +338,8 @@
     }
     .email-input:focus {
       border-color: var(--primary);
-      background: rgba(11, 15, 25, 0.9);
-      box-shadow: 0 0 0 3px rgba(237, 28, 36, 0.2);
+      background: rgba(7, 20, 38, 0.95);
+      box-shadow: 0 0 0 3px rgba(255, 169, 6, 0.25);
     }
 
     .submit-btn {
@@ -317,22 +348,22 @@
       justify-content: center;
       gap: 10px;
       padding: 0 28px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, #FFA906 0%, #E68A00 100%);
+      color: #071426;
       border: none;
       border-radius: var(--radius-md);
       font-family: 'Outfit', sans-serif;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.25s ease;
-      box-shadow: 0 6px 20px var(--primary-glow);
+      box-shadow: 0 6px 20px rgba(255, 169, 6, 0.35);
     }
     .submit-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(237, 28, 36, 0.5);
-      filter: brightness(1.08);
+      box-shadow: 0 10px 28px rgba(255, 169, 6, 0.5);
+      filter: brightness(1.06);
     }
     .submit-btn:active {
       transform: translateY(0);
@@ -447,14 +478,14 @@
       align-items: flex-start;
       gap: 12px;
       padding: 10px 12px;
-      background: rgba(11, 15, 25, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(7, 20, 38, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: var(--radius-md);
       transition: all 0.25s ease;
     }
     .feature-point:hover {
-      background: rgba(18, 24, 38, 0.9);
-      border-color: rgba(237, 28, 36, 0.2);
+      background: rgba(16, 46, 82, 0.85);
+      border-color: rgba(255, 169, 6, 0.3);
       transform: translateX(3px);
     }
 
@@ -488,81 +519,13 @@
       line-height: 1.4;
     }
 
-    /* Category Cards Grid */
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .preview-card {
-      background: var(--bg-card);
-      border: 1px solid var(--bg-card-border);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      backdrop-filter: blur(14px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .preview-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(237, 28, 36, 0.3);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(237, 28, 36, 0.2);
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .card-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: var(--primary-light);
-      color: var(--primary);
-      display: grid;
-      place-items: center;
-      font-size: 15px;
-    }
-
-    .card-badge {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 3px 8px;
-      border-radius: var(--radius-full);
-    }
-
-    .card-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: #F1F5F9;
-      margin-bottom: 2px;
-    }
-
-    .card-price {
-      font-size: 13px;
-      font-weight: 700;
-      color: #FF5A60;
-    }
-    .card-price span {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-dim);
-    }
-
     /* Live Waitlist Counter Pill */
     .floating-waitlist {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(135deg, rgba(237, 28, 36, 0.12), rgba(18, 24, 38, 0.8));
-      border: 1px solid rgba(237, 28, 36, 0.25);
+      background: linear-gradient(135deg, rgba(255, 169, 6, 0.12), rgba(16, 46, 82, 0.85));
+      border: 1px solid rgba(255, 169, 6, 0.25);
       border-radius: var(--radius-md);
       padding: 12px 18px;
     }
@@ -583,10 +546,10 @@
       margin-left: 0;
     }
     .avatar-stack.count {
-      background: var(--primary);
-      color: white;
+      background: #FFA906;
+      color: #071426;
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 800;
       display: grid;
       place-items: center;
     }
@@ -596,7 +559,7 @@
       color: #E2E8F0;
     }
     .waitlist-text span {
-      color: #FF5A60;
+      color: #FFA906;
       font-weight: 800;
     }
 
@@ -684,21 +647,30 @@
         padding: 16px 16px 24px;
       }
       header {
-        flex-direction: row;
+        padding: 10px 0 20px;
+        gap: 10px;
+      }
+      .nav-top {
+        display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 12px;
+        width: 100%;
       }
-      .brand-name {
-        font-size: 22px;
-      }
-      .logo-box {
-        width: 36px;
+      .brand-logo-img {
         height: 36px;
       }
+      .insta-follow-btn {
+        padding: 7px 12px;
+        font-size: 11.5px;
+        gap: 6px;
+      }
       .status-badge {
-        padding: 5px 10px;
+        padding: 5px 12px;
         font-size: 11px;
+      }
+      .nav-bottom {
+        display: flex;
+        justify-content: flex-start;
       }
       h1 {
         font-size: clamp(30px, 8.5vw, 44px);
@@ -754,31 +726,6 @@
       .point-desc {
         font-size: 11px;
       }
-      .preview-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-      .preview-card {
-        padding: 12px 10px;
-      }
-      .card-name {
-        font-size: 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .card-price {
-        font-size: 12px;
-      }
-      .card-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 13px;
-      }
-      .card-badge {
-        font-size: 9px;
-        padding: 2px 6px;
-      }
       .floating-waitlist {
         padding: 10px 14px;
         flex-direction: row;
@@ -806,12 +753,16 @@
     }
 
     @media (max-width: 380px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
+      .brand-logo-img {
+        height: 32px;
       }
-      .preview-grid {
-        grid-template-columns: 1fr;
+      .insta-follow-btn {
+        padding: 6px 10px;
+        font-size: 10.5px;
+        gap: 5px;
+      }
+      .insta-follow-btn i {
+        font-size: 13px;
       }
       .floating-waitlist {
         flex-direction: column;
@@ -831,20 +782,22 @@
   <div class="wrapper">
     <!-- Navigation -->
     <header>
-      <a href="/" class="brand" aria-label="Rentli Home">
-        <div class="logo-box">
-          <svg viewBox="0 0 100 100">
-            <g fill="#ffffff" transform="translate(14 14) scale(0.1406)">
-              <path d="M502.6 150.6l-96 96c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L402.7 160 32 160c-17.7 0-32-14.3-32-32S14.3 96 32 96l370.7 0-41.4-41.4c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l96 96c12.5 12.5 12.5 32.8 0 45.3zm-397.3 352l-96-96c-12.5-12.5-12.5-32.8 0-45.3l96-96c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L109.3 352 480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32l-370.7 0 41.4 41.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0z"/>
-            </g>
-          </svg>
-        </div>
-        <span class="brand-name">Rentli<span>.</span></span>
-      </a>
+      <div class="nav-top">
+        <a href="/" class="brand" aria-label="Rentli Home">
+          <img src="logo_transparent.png" alt="Rentli Logo" class="brand-logo-img">
+        </a>
 
-      <div class="status-badge">
-        <span class="pulse-dot"></span>
-        <span>Launching Soon in India</span>
+        <a href="https://www.instagram.com/rentliofficial" target="_blank" rel="noreferrer" class="insta-follow-btn" title="Follow Rentli on Instagram">
+          <i class="fa-brands fa-instagram"></i>
+          <span>Follow @rentliofficial</span>
+        </a>
+      </div>
+
+      <div class="nav-bottom">
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          <span>Launching Soon in India</span>
+        </div>
       </div>
     </header>
 
@@ -905,8 +858,8 @@
             <span>Verified KYC Owners</span>
           </div>
           <div class="perk-item">
-            <i class="fa-solid fa-gift"></i>
-            <span>₹500 Early Bird Credit</span>
+            <i class="fa-solid fa-handshake-simple"></i>
+            <span>Direct P2P Rentals</span>
           </div>
         </div>
       </section>
@@ -947,45 +900,13 @@
                 <span class="point-desc">Earn monthly passive income by listing your cameras, gadgets & designer wear.</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Category Showcase Grid -->
-        <div class="preview-grid">
-          <div class="preview-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-camera"></i></div>
-              <span class="card-badge">Photography</span>
+            <div class="feature-point">
+              <div class="point-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div class="point-info">
+                <span class="point-title">Flexible Pickup & Delivery</span>
+                <span class="point-desc">Choose convenient doorstep handovers or direct neighborhood pickups.</span>
+              </div>
             </div>
-            <div class="card-name">Sony Alpha A7 IV</div>
-            <div class="card-price">₹1,299 <span>/ day</span></div>
-          </div>
-
-          <div class="preview-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-laptop"></i></div>
-              <span class="card-badge">Tech & Gaming</span>
-            </div>
-            <div class="card-name">MacBook Pro M3</div>
-            <div class="card-price">₹899 <span>/ day</span></div>
-          </div>
-
-          <div class="preview-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-vest-patches"></i></div>
-              <span class="card-badge">Fashion</span>
-            </div>
-            <div class="card-name">Designer Sherwani</div>
-            <div class="card-price">₹549 <span>/ day</span></div>
-          </div>
-
-          <div class="preview-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
-              <span class="card-badge">Gaming</span>
-            </div>
-            <div class="card-name">PlayStation 5 Bundle</div>
-            <div class="card-price">₹399 <span>/ day</span></div>
           </div>
         </div>
 
@@ -1012,9 +933,9 @@
 
       <div class="social-links">
         <a href="mailto:hello@rentli.in" class="social-link" title="Contact Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://instagram.com/rentli.in" target="_blank" rel="noreferrer" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://linkedin.com/company/rentli" target="_blank" rel="noreferrer" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://twitter.com/rentli_in" target="_blank" rel="noreferrer" class="social-link" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/rentliofficial" target="_blank" rel="noreferrer" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" class="social-link" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
       </div>
     </footer>
   </div>
@@ -1077,7 +998,7 @@
         } catch {}
 
         messageEl.className = 'form-message success';
-        messageEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> <strong>You\'re on the VIP list!</strong> We\'ll email you exclusive access + ₹500 credits at launch.';
+        messageEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> <strong>You\'re on the VIP list!</strong> We\'ll email you exclusive access as soon as we launch.';
         emailInput.value = '';
       } catch (err) {
         // Fallback gracefully
@@ -1088,7 +1009,7 @@
         } catch {}
 
         messageEl.className = 'form-message success';
-        messageEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> <strong>You\'re on the VIP list!</strong> We\'ll email you exclusive access + ₹500 credits at launch.';
+        messageEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> <strong>You\'re on the VIP list!</strong> We\'ll email you exclusive access as soon as we launch.';
         emailInput.value = '';
       } finally {
         submitBtn.disabled = false;
